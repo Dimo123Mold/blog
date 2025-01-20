@@ -7,6 +7,7 @@ class Author(models.Model):
     name = models.CharField(max_length=50, unique=True)
     age = models.PositiveIntegerField()
     email = models.EmailField(null=True, blank=True)
+    bio = models.TextField()
 
     def __str__(self):
         return f"Author({self.name})"
@@ -19,6 +20,8 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.URLField(null=True, blank=True)
+    published = models.BooleanField(default= False)
+
 
     def __str__(self):
         return f"{self.title} ({self.author})"
